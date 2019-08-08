@@ -62,7 +62,7 @@ class Application(tk.Frame):
 
     def create_buttons(self): 
         self.solve_button = tk.Button(self)
-        self.solve_button.config(width=10, height=1)
+        self.solve_button.config(width=10, height=1, state='disabled')
         self.solve_button['text'] = CONST_SOLVE
         self.solve_button['command'] = self.create_data
         self.solve_button.place(x=200, y=325)  
@@ -182,7 +182,7 @@ class Application(tk.Frame):
         self.max_pages.focus()
         self.processor.pages=int(self.max_pages.get())
         self.max_pages.delete(0,100)
-       
+        self.solve_button.config(state='disabled')
         self.processor.create_dzn()
         self.show_solution()
         print('Done!')
